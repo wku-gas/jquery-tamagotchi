@@ -1,6 +1,41 @@
-const moods = ['general1', 'general2', 'happy', 'sad', 'angry', 'back-turned', 'eyes-closed', 'no', 'badly-behaved']
+class Tamagotchi {
+  static moods = ['general1', 'general2', 'happy', 'sad', 'angry', 'back-turned', 'eyes-closed', 'no', 'badly-behaved']
 
-const getRandomMood = () => moods[Math.floor(Math.random() * moods.length)]
+  constructor() {
+    this.hunger = 1
+    this.sleepliness = 1
+    this.boredom = 1
+  }
+
+  eat() {
+    this.hunger--
+    this.sleepliness++
+  }
+
+  run() {
+    this.hunger += 2
+    this.sleepliness--
+    this.boredom--
+  }
+
+  sleep() {
+    this.hunger++
+    this.sleepliness -= 5
+  }
+
+  display() {
+    console.log(this.hunger)
+    console.log(this.sleepliness)
+    console.log(this.boredom)
+  }
+
+  static getRandomMood() {
+    return this.moods[Math.floor(Math.random() * this.moods.length)]
+  }
+}
+
+
+const gozarutchi = new Tamagotchi();
 
 const setMood = (mood) => {
   $('#tamagotchi').removeClass()
@@ -35,7 +70,7 @@ const runningAnimation = () => {
   const runningInterval = setInterval(running, 200);
   setTimeout(() => {
     clearInterval(runningInterval)
-    setMood(getRandomMood())
+    setMood(Tamagotchi.getRandomMood())
   }, 5000)
 }
 
@@ -49,7 +84,7 @@ const sleepingAnimation = () => {
   const sleepingInterval = setInterval(sleeping, 200);
   setTimeout(() => {
     clearInterval(sleepingInterval)
-    setMood(getRandomMood())
+    setMood(Tamagotchi.getRandomMood())
   }, 3000)
 }
 
@@ -57,8 +92,9 @@ const sleepingAnimation = () => {
 $(() => {
   setMood('general1')
   setInterval(() => {
-    setMood(getRandomMood())
+    setMood(Tamagotchi.getRandomMood())
   }, 5000)
+
   $('#eat').click(eatingAnimation)
   $('#run').click(runningAnimation)
   $('#sleep').click(sleepingAnimation)
