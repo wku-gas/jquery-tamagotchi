@@ -1,3 +1,103 @@
 body {
   background-color: green;
 }
+
+#screen {
+  background-color: lightgray;
+  height: 200px;
+  width: 200px;
+  margin: 100px auto;
+  border-radius: 50px;
+}
+
+#tamagotchi {
+  width: 200px;
+  height: 200px;
+  background-size: 3000%;
+  border-radius: 100px;
+}
+
+.general1 {
+  background: url('gozarutchi.png') -110px -55px;
+}
+
+.general2 {
+  background: url('gozarutchi.png') -370px -55px;
+}
+
+.happy {
+  background: url('gozarutchi.png') -235px -385px;
+}
+
+.back-turned {
+  background: url('gozarutchi.png') -235px -690px;
+}
+
+.sad {
+  background: url('gozarutchi.png') -235px -990px;
+}
+
+.eyes-closed {
+  background: url('gozarutchi.png') -235px -1300px;
+}
+
+.angry {
+  background: url('gozarutchi.png') -235px -1610px;
+}
+
+.eating1 {
+  background: url('gozarutchi.png') -80px -1910px;
+}
+
+.eating2 {
+  background: url('gozarutchi.png') -380px -1910px;
+}
+
+.no {
+  background: url('gozarutchi.png') -235px -2210px;
+}
+
+.sitting1 {
+  background: url('gozarutchi.png') -80px -2515px;
+}
+
+.sitting2 {
+  background: url('gozarutchi.png') -380px -2515px;
+}
+
+.running1 {
+  background: url('gozarutchi.png') -35px -2815px;
+}
+
+.running2 {
+  background: url('gozarutchi.png') -235px -2815px;
+}
+
+.running3 {
+  background: url('gozarutchi.png') -435px -2815px;
+}
+
+.surprised1 {
+  background: url('gozarutchi.png') -30px -3125px;
+}
+
+.surprised2 {
+  background: url('gozarutchi.png') -235px -3125px;
+}
+
+.surprised3 {
+  background: url('gozarutchi.png') -445px -3125px;
+}
+
+.sleeping1 {
+  background: url('gozarutchi.png') -1635px -1590px;
+}
+
+.sleeping2 {
+  background: url('gozarutchi.png') -1945px -1590px;
+}
+
+.buttons {
+  margin-top: 8px;
+  text-align: center;
+}
