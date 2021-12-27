@@ -90,11 +90,19 @@ body {
 }
 
 .sleeping1 {
-  background: url('gozarutchi.png') -1635px -1590px;
+  background: url('gozarutchi.png') -1640px -1590px;
 }
 
 .sleeping2 {
   background: url('gozarutchi.png') -1945px -1590px;
+}
+
+.horrible-food {
+  background: url('gozarutchi.png') -1800px -55px;
+}
+
+.badly-behaved {
+  background: url('gozarutchi.png') -1800px -365px;
 }
 
 .buttons {

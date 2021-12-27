@@ -1,11 +1,6 @@
-const moods = ['general1', 'general2', 'happy', 'sad', 'angry', 'back-turned', 'eyes-closed']
+const moods = ['general1', 'general2', 'happy', 'sad', 'angry', 'back-turned', 'eyes-closed', 'no', 'badly-behaved']
 
 const getRandomMood = () => moods[Math.floor(Math.random() * moods.length)]
-
-const setSprite = () => {
-  $('#tamagotchi').removeClass()
-  $('#tamagotchi').addClass(getRandomMood())
-}
 
 const setMood = (mood) => {
   $('#tamagotchi').removeClass()
@@ -22,7 +17,7 @@ const eatingAnimation = () => {
   const eatingInterval = setInterval(eating, 200);
   setTimeout(() => {
     clearInterval(eatingInterval)
-    setMood(getRandomMood())
+    setMood(Math.random() < 0.8 ? 'happy' : 'horrible-food')
   }, 2000)
 }
 
@@ -33,7 +28,6 @@ const running = () => {
     $('#tamagotchi').addClass('running3')
   } else {
     $('#tamagotchi').addClass(runningClass === 'running1' ? 'running2' : 'running1')
-
   }
 }
 
