@@ -9,12 +9,12 @@ class Tamagotchi {
   }
 
   eat() {
-    this.hunger--;
+    this.hunger -= 2;
     this.sleepliness++;
   }
 
   run() {
-    this.hunger += 2;
+    this.hunger += 3;
     this.sleepliness--;
     this.boredom--;
   }
@@ -24,17 +24,20 @@ class Tamagotchi {
     this.sleepliness -= 5;
   }
 
+  idle() {
+    this.hunger++;
+    this.sleepliness++;
+    this.boredom++;
+  }
+
   display() {
-    console.log(this.hunger);
-    console.log(this.sleepliness);
-    console.log(this.boredom);
+    console.log(`hunger: ${this.hunger}`, `sleepiness: ${this.sleepliness}`, `boredom: ${this.boredom}`);
   }
 
   static getRandomMood() {
     return this.moods[Math.floor(Math.random() * this.moods.length)];
   }
 }
-
 
 const gozarutchi = new Tamagotchi();
 
@@ -51,6 +54,7 @@ const eating = () => {
 
 const eatingAnimation = () => {
   const eatingInterval = setInterval(eating, 200);
+  gozarutchi.eat();
   setTimeout(() => {
     clearInterval(eatingInterval);
     setMood(Math.random() < 0.8 ? 'happy' : 'horrible-food');
@@ -69,6 +73,7 @@ const running = () => {
 
 const runningAnimation = () => {
   const runningInterval = setInterval(running, 200);
+  gozarutchi.run();
   setTimeout(() => {
     clearInterval(runningInterval);
     setMood(Tamagotchi.getRandomMood());
@@ -83,6 +88,7 @@ const sleeping = () => {
 
 const sleepingAnimation = () => {
   const sleepingInterval = setInterval(sleeping, 200);
+  gozarutchi.sleep();
   setTimeout(() => {
     clearInterval(sleepingInterval);
     setMood(Tamagotchi.getRandomMood());
@@ -94,6 +100,8 @@ $(() => {
   setMood('general1');
   setInterval(() => {
     setMood(Tamagotchi.getRandomMood());
+    gozarutchi.idle();
+    gozarutchi.display();
   }, 5000);
 
   $('#eat').click(eatingAnimation);
