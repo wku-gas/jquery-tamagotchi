@@ -30,7 +30,22 @@ class Tamagotchi {
     this.boredom++;
   }
 
+  validate() {
+    if (this.hunger < 1) { this.hunger = 1; }
+    if (this.sleepliness < 1) { this.sleepliness = 1; }
+    if (this.boredom < 1) { this.boredom = 1; }
+
+    if (this.hunger > 10) {
+      alert('Starved to death');
+    } else if (this.sleepliness > 10) {
+      alert('Death due to lack of sleep!');
+    } else if (this.boredom > 10) {
+      alert('Bored to death!');
+    }
+  }
+
   display() {
+    this.validate();
     console.log(`hunger: ${this.hunger}`, `sleepiness: ${this.sleepliness}`, `boredom: ${this.boredom}`);
   }
 
@@ -54,9 +69,11 @@ const eating = () => {
 
 const eatingAnimation = () => {
   const eatingInterval = setInterval(eating, 200);
-  gozarutchi.eat();
+
   setTimeout(() => {
     clearInterval(eatingInterval);
+    gozarutchi.eat();
+    gozarutchi.display();
     setMood(Math.random() < 0.8 ? 'happy' : 'horrible-food');
   }, 2000);
 };
@@ -73,9 +90,11 @@ const running = () => {
 
 const runningAnimation = () => {
   const runningInterval = setInterval(running, 200);
-  gozarutchi.run();
+
   setTimeout(() => {
     clearInterval(runningInterval);
+    gozarutchi.run();
+    gozarutchi.display();
     setMood(Tamagotchi.getRandomMood());
   }, 5000);
 };
@@ -88,9 +107,11 @@ const sleeping = () => {
 
 const sleepingAnimation = () => {
   const sleepingInterval = setInterval(sleeping, 200);
-  gozarutchi.sleep();
+
   setTimeout(() => {
     clearInterval(sleepingInterval);
+    gozarutchi.sleep();
+    gozarutchi.display();
     setMood(Tamagotchi.getRandomMood());
   }, 3000);
 };
@@ -98,6 +119,7 @@ const sleepingAnimation = () => {
 
 $(() => {
   setMood('general1');
+
   setInterval(() => {
     setMood(Tamagotchi.getRandomMood());
     gozarutchi.idle();
